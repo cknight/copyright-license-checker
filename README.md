@@ -109,6 +109,6 @@ await updateCopyrightHeaders(options);
 
 and run it with
 
-```cmd
+```shell
 deno run --allow-write=. --allow-read=. updateHeaders.ts
 ```
