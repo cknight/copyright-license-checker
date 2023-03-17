@@ -19,6 +19,9 @@ deno lint
 echo '*** Testing code'
 deno test -A
 
+echo '*** Check license and copyright headers'
+deno run --allow-read=. checker.ts project_utils/header_options.json
+
 echo '*** Check unstable also compiles'
 deno cache --reload --unstable mod.ts
 

@@ -1,6 +1,6 @@
 ![ci](https://github.com/cknight/copyright-checker/workflows/ci/badge.svg)
 
-# copyright-checker
+# copyright-license-checker
 
 A Deno based utility to check and/or update the copyright/license file headers
 of source code files.
@@ -84,7 +84,8 @@ deno run --allow-read=. https://deno.land/x/copyright_license_checker@1.1.0/chec
 ### Implementing a header check in your CI pipeline
 
 The simplest way to implement a copyright/license header check in your CI
-pipeline is to add a test. An example test would be:
+pipeline to ensure all necessary files have a copyright/license header which is
+also up to date is to add a test in your project. An example test would be:
 
 ```ts
 import { assert } from "https://deno.land/std@0.179.0/testing/asserts.ts";
