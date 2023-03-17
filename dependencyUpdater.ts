@@ -1,9 +1,10 @@
 import { Options, updateCopyrightHeaders } from "./mod.ts";
 
-const options:Options = {
+const options: Options = {
   extensions: [".ts"],
   exclusions: ["dependencyUpdater.ts"],
-  headerText: `// Copyright {TIMEFRAME} Chris Knight. All rights reserved. MIT license.`,
+  headerText:
+    `// Copyright {TIMEFRAME} Chris Knight. All rights reserved. MIT license.`,
   rootDir: ".",
   firstYear: 2023,
   quiet: false,
