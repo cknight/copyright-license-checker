@@ -1,6 +1,6 @@
 // Copyright 2023 Chris Knight. All rights reserved. MIT license.
-import { walk } from "https://deno.land/std@0.178.0/fs/walk.ts";
-import { globToRegExp } from "https://deno.land/std@0.178.0/path/glob.ts";
+import { walk } from "https://deno.land/std@0.180.0/fs/walk.ts";
+import { globToRegExp } from "https://deno.land/std@0.180.0/path/glob.ts";
 
 export type Options = {
   /* file extensions to check. E.g. [".ts", ".js"] */

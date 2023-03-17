@@ -1,6 +1,6 @@
 // Copyright 2023 Chris Knight. All rights reserved. MIT license.
 // Copyright 2022-2023 the optic authors. All rights reserved. MIT license.
-import { assert, assertEquals, assertRejects } from "https://deno.land/std@0.179.0/testing/asserts.ts";
+import { assert, assertEquals, assertRejects } from "https://deno.land/std@0.180.0/testing/asserts.ts";
 import { checkCopyrightHeaders, Options, updateCopyrightHeaders } from "./mod.ts";
 
 Deno.test({
