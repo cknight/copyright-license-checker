@@ -40,31 +40,31 @@ number of reasons:
 
 ## Usage
 
-The primary use case of this module is as a test within your code's test suite
-to check for compliance with the projects copyright and license header. Thus
-every time your test suite runs, it will check the compliance of the copyright
-and license header.
+This project offers two command line utilities, `checker.ts` and `updater.ts`.
+These take a single parameter, an options JSON file.
 
 ### Options
 
-This is configurable with an `Options` input as follows:
+This is a JSON file which looks like this:
 
-```ts
-export type Options = {
-  /* file extensions to check. E.g. [".ts", ".js"] */
-  extensions: string[];
-  /* glob patterns of files or directories to exclude. E.g. ["some/path/*_test.ts"] */
-  exclusions?: string[];
-  /* the first year of the copyright. If not provided, only the current year will be used. */
-  firstYear?: number;
-  /* the copyright and license header text. The string "{TIMEFRAME}" will be replaced with the current year, or the first year (if specified) and the current year (e.g. 2019-2023). */
-  headerText: string;
-  /* the root directory to carry out the check. */
-  rootDir: string;
-  /* if true, no output will be printed to the console. */
-  quiet?: boolean;
-};
+```json
+{
+  "extensions": [
+    ".ts",
+    ".js"
+  ],
+  "exclusions": [
+    "node_modules",
+    "dist"
+  ],
+  "headerText": "// Copyright {TIMEFRAME} The Company authors. All rights reserved. MIT license.",
+  "rootDir": ".",
+  "firstYear": 2019,
+  "quiet": false
+}
 ```
+
+The `firstYear` element is optional.
 
 With regards to dynamic timeframes in your header, you specify in the header
 text a `{TIMEFRAME}` token placeholder. This token will be replaced with the
@@ -74,14 +74,23 @@ as the current year.
 
 ### Checking files have up to date copyright and license header
 
-An example test would be:
+You can check your files via the following:
+
+```shell
+deno run --allow-read=. https://deno.land/x/copyright_license_checker@1.1.0/checker.ts options.json
+```
+
+### Implementing a header check in your CI pipeline
+
+The simplest way to implement a copyright/license header check in your CI
+pipeline is to add a test. An example test would be:
 
 ```ts
 import { assert } from "https://deno.land/std@0.179.0/testing/asserts.ts";
 import {
   checkCopyrightHeaders,
   Options,
-} from "https://deno.land/x/copyright_license_checker@1.0.1/mod.ts";
+} from "https://deno.land/x/copyright_license_checker@1.1.0/mod.ts";
 
 // Run with allow write and allow read permissions on the relevant directories
 // e.g. deno test --allow-write=. --allow-read=.
@@ -104,30 +113,8 @@ Deno.test({
 
 ### Updating files to have the latest copyright and license header
 
-To update the headers you can write a simple script as follows:
-
-```ts
-// updateHeaders.ts
-import {
-  Options,
-  updateCopyrightHeaders,
-} from "https://deno.land/x/copyright_license_checker@1.0.1/mod.ts";
-
-const options: Options = {
-  extensions: [".ts"],
-  exclusions: ["test.ts"],
-  headerText:
-    `// Copyright {TIMEFRAME} the Org authors. All rights reserved. MIT license.`,
-  rootDir: ".",
-  firstYear: 2019,
-  quiet: false,
-};
-
-await updateCopyrightHeaders(options);
-```
-
-and run it with
+To update the headers you can run the following:
 
 ```shell
-deno run --allow-write=. --allow-read=. updateHeaders.ts
+deno run --allow-write=. --allow-read=. https://deno.land/x/copyright_license_checker@1.1.0/updater.ts options.json
 ```

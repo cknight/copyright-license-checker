@@ -1,0 +1,14 @@
+{
+  "extensions": [
+    ".ts",
+    ".js"
+  ],
+  "exclusions": [
+    "node_modules",
+    "dist"
+  ],
+  "headerText": "// Copyright {TIMEFRAME} The Company authors. All rights reserved. MIT license.",
+  "rootDir": ".",
+  "firstYear": 2019,
+  "quiet": false
+}
