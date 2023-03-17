@@ -1,5 +1,5 @@
 # copyright-checker
-A utility to check and/or update the copyright/license file headers of source code files.
+A Deno based utility to check and/or update the copyright/license file headers of source code files.
 
 ## Why do you need a copyright and license header in your source files?
 Including a copyright and license header in source files is important for a number of reasons:
