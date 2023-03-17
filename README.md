@@ -7,8 +7,8 @@ of source code files.
 
 ## What is a copyright and license header?
 
-A copyright and license header is typically found at the top of a source file.
-It might look like this:
+A copyright and license header is typically found at the top of each source file
+in a project. It might look like this:
 
 ```ts
 // Copyright 2019-2023 The Company authors. All rights reserved. MIT license.
@@ -41,7 +41,7 @@ number of reasons:
 ## Usage
 
 This project offers two command line utilities, `checker.ts` and `updater.ts`.
-These take a single parameter, an options JSON file.
+These take a single argument, an options JSON file.
 
 ### Options
 
@@ -55,7 +55,8 @@ This is a JSON file which looks like this:
   ],
   "exclusions": [
     "node_modules",
-    "dist"
+    "dist",
+    "**/testdata"
   ],
   "headerText": "// Copyright {TIMEFRAME} The Company authors. All rights reserved. MIT license.",
   "rootDir": ".",
@@ -68,9 +69,9 @@ The `firstYear` element is optional.
 
 With regards to dynamic timeframes in your header, you specify in the header
 text a `{TIMEFRAME}` token placeholder. This token will be replaced with the
-timespan first year to current year (e.g. 2019-2023) OR just the current year
-(e.g. 2023) if the first year is either left out of the options or is the same
-as the current year.
+timespan of first year to current year (e.g. "2019-2023") OR just the current
+year (e.g. "2023") if the first year is either left out of the options or is the
+same as the current year.
 
 ### Checking files have up to date copyright and license header
 
