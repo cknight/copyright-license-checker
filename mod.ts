@@ -1,3 +1,4 @@
+// Copyright 2023 Chris Knight. All rights reserved. MIT license.
 import { walk } from "https://deno.land/std@0.178.0/fs/walk.ts";
 import { globToRegExp } from "https://deno.land/std@0.178.0/path/glob.ts";
 
@@ -9,7 +10,7 @@ export type Options = {
   /* the first year of the copyright. If not provided, only the current year will be used. */
   firstYear?: number,
   /* the copyright and license header text. The string "{TIMEFRAME}" will be replaced with the current year or the first year (if specified) and the current year. */
-  licenseText: string,
+  headerText: string,
   /* the root directory to carry out the check. */
   rootDir: string,
   /* if true, no output will be printed to the console. */
@@ -39,11 +40,11 @@ export async function updateCopyrightHeaders(options: Options): Promise<void> {
 async function walkFiles(options: Options, shouldUpdate: boolean): Promise<string[][]> {
   const CURRENT_YEAR = new Date().getFullYear();
   validateOptions(options, CURRENT_YEAR);
-  const { extensions, exclusions = [], firstYear, licenseText, rootDir } = options;
+  const { extensions, exclusions = [], firstYear, headerText, rootDir } = options;
 
   const timeframe = (firstYear && firstYear != CURRENT_YEAR) ? `${firstYear}-${CURRENT_YEAR}` : CURRENT_YEAR.toString();
-  const license = licenseText.replace("{TIMEFRAME}", timeframe);
-  const [ licenseStart, licenseEnd ] = licenseText.split("{TIMEFRAME}");
+  const license = headerText.replace("{TIMEFRAME}", timeframe);
+  const [ licenseStart, licenseEnd ] = headerText.split("{TIMEFRAME}");
 
   const filesMissingLicense: string[] = [];
   const filesWithOutOfDateLicense: string[] = [];
@@ -129,7 +130,7 @@ function validateOptions(options: Options, currentYear: number): void {
   }
   assert(options.extensions.length > 0, "No extensions provided");
   assert(options.rootDir.length > 0, "No root directory provided");
-  assert(options.licenseText.length > 0, "No license text provided");
+  assert(options.headerText.length > 0, "No license text provided");
 }
 
 function assert(assertion: boolean, logMessage: string) {

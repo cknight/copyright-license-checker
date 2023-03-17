@@ -1,3 +1,4 @@
+// Copyright 2023 Chris Knight. All rights reserved. MIT license.
 // Copyright 2022-2023 the optic authors. All rights reserved. MIT license.
 import { assert, assertEquals, assertRejects } from "https://deno.land/std@0.179.0/testing/asserts.ts";
 import { checkCopyrightHeaders, Options, updateCopyrightHeaders } from "./mod.ts";
@@ -8,7 +9,7 @@ Deno.test({
     const options:Options = {
       extensions: [".java", ".jsx"],
       exclusions: ["mod.ts"],
-      licenseText: `// Copyright {TIMEFRAME} the code authors. All rights reserved. MIT license.`,
+      headerText: `// Copyright {TIMEFRAME} the code authors. All rights reserved. MIT license.`,
       rootDir: ".",
       firstYear: 2022,
       quiet: false,
@@ -34,7 +35,7 @@ Deno.test({
     await assertRejects( () => updateCopyrightHeaders(options), Error, "No root directory provided");
 
     options.rootDir = ".";
-    options.licenseText = "";
+    options.headerText = "";
     await assertRejects( () => checkCopyrightHeaders(options), Error, "No license text provided");
     await assertRejects( () => updateCopyrightHeaders(options), Error, "No license text provided");
   }
@@ -56,7 +57,7 @@ Deno.test({
       const options:Options = {
         extensions: [".test"],
         exclusions: [],
-        licenseText: `// Copyright {TIMEFRAME}. MIT license.`,
+        headerText: `// Copyright {TIMEFRAME}. MIT license.`,
         rootDir: ".",
         firstYear: 2018,
         quiet: false,
@@ -73,7 +74,7 @@ Deno.test({
       const options:Options = {
         extensions: [".test"],
         exclusions: [],
-        licenseText: `// Copyright {TIMEFRAME}. MIT license.`,
+        headerText: `// Copyright {TIMEFRAME}. MIT license.`,
         rootDir: ".",
         firstYear: 2018,
         quiet: false,
@@ -102,7 +103,7 @@ Deno.test({
       const options:Options = {
         extensions: [".test"],
         exclusions: [],
-        licenseText: `// Copyright {TIMEFRAME}. MIT license.`,
+        headerText: `// Copyright {TIMEFRAME}. MIT license.`,
         rootDir: ".",
         quiet: true,
       };
