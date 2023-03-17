@@ -6,10 +6,14 @@ A Deno based utility to check and/or update the copyright/license file headers
 of source code files.
 
 ## What is a copyright and license header?
-A copyright and license header is typically found at the top of a source file.  It might look like this:
+
+A copyright and license header is typically found at the top of a source file.
+It might look like this:
+
 ```ts
 // Copyright 2019-2023 The Company authors. All rights reserved. MIT license.
 ```
+
 where `The Company` is either the organisation (or individual) owning the code.
 
 ## Why do you need a copyright and license header in your source files?
