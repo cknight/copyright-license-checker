@@ -1,3 +1,5 @@
+![ci](https://github.com/cknight/copyright-checker/workflows/ci/badge.svg)
+
 # copyright-checker
 
 A Deno based utility to check and/or update the copyright/license file headers
