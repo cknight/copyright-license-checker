@@ -1,5 +1,4 @@
 // Copyright 2023 Chris Knight. All rights reserved. MIT license.
-// Copyright 2022-2023 the optic authors. All rights reserved. MIT license.
 import {
   assert,
   assertEquals,
