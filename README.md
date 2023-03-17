@@ -78,7 +78,10 @@ An example test would be:
 
 ```ts
 import { assert } from "https://deno.land/std@0.179.0/testing/asserts.ts";
-import { checkCopyrightHeaders, Options } from "https://deno.land/x/copyright_license_checker@1.0.1/mod.ts";
+import {
+  checkCopyrightHeaders,
+  Options,
+} from "https://deno.land/x/copyright_license_checker@1.0.1/mod.ts";
 
 // Run with allow write and allow read permissions on the relevant directories
 // e.g. deno test --allow-write=. --allow-read=.
@@ -105,7 +108,10 @@ To update the headers you can write a simple script as follows:
 
 ```ts
 // updateHeaders.ts
-import { Options, updateCopyrightHeaders } from "https://deno.land/x/copyright_license_checker@1.0.1/mod.ts";
+import {
+  Options,
+  updateCopyrightHeaders,
+} from "https://deno.land/x/copyright_license_checker@1.0.1/mod.ts";
 
 const options: Options = {
   extensions: [".ts"],
