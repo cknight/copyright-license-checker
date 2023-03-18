@@ -95,13 +95,13 @@ import {
 } from "https://deno.land/x/copyright_license_checker@1.1.0/mod.ts";
 
 // Run with allow write and allow read permissions on the relevant directories
-// e.g. deno test --allow-write=. --allow-read=.
+// e.g. deno test --allow-read=.
 Deno.test({
   name: "Copyright and license headers are present and up to date",
   async fn() {
     const options: Options = {
       extensions: [".ts", ".tsx"],
-      exclusions: ["test.ts"],
+      exclusions: ["testdata", "node_modules"],
       headerText:
         `// Copyright {TIMEFRAME} the Org authors. All rights reserved. MIT license.`,
       rootDir: ".",
