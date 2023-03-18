@@ -10,4 +10,8 @@ if (Deno.args.length !== 1) {
 const config = Deno.readTextFileSync(Deno.args[0]);
 const options = JSON.parse(config) as Options;
 
-await checkCopyrightHeaders(options);
+const success = await checkCopyrightHeaders(options);
+
+if (!success) {
+  Deno.exit(1);
+}
