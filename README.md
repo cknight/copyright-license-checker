@@ -78,7 +78,7 @@ same as the current year.
 You can check your files via the following:
 
 ```shell
-deno run --allow-read=. https://deno.land/x/copyright_license_checker@1.1.0/checker.ts options.json
+deno run --allow-read=. jsr:@cknight/copyright-checker/checker options.json
 ```
 
 ### Implementing a header check in your CI pipeline
@@ -118,5 +118,5 @@ Deno.test({
 To update the headers you can run the following:
 
 ```shell
-deno run --allow-write=. --allow-read=. https://deno.land/x/copyright_license_checker@1.1.0/updater.ts options.json
+deno run --allow-write=. --allow-read=. jsr:@cknight/copyright-checker/updater options.json
 ```

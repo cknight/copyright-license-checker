@@ -1,9 +1,5 @@
 // Copyright 2023 Chris Knight. All rights reserved. MIT license.
-import {
-  assert,
-  assertEquals,
-  assertRejects,
-} from "@std/assert";
+import { assert, assertEquals, assertRejects } from "@std/assert";
 import {
   checkCopyrightHeaders,
   Options,

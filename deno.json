@@ -1,7 +1,11 @@
 {
   "name": "@cknight/copyright-checker",
   "version": "1.2.0",
-  "exports": "./mod.ts",
+  "exports": {
+    ".": "./mod.ts",
+    "checker": "./checker.ts",
+    "updater": "./updater.ts"
+  },
   "imports": {
     "@std/assert": "jsr:@std/assert@0.215",
     "@std/fs": "jsr:@std/fs@0.215",
