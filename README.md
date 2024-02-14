@@ -88,11 +88,11 @@ pipeline to ensure all necessary files have a copyright/license header which is
 also up to date is to add a test in your project. An example test would be:
 
 ```ts
-import { assert } from "https://deno.land/std@0.179.0/testing/asserts.ts";
+import { assert } from "jsr:@std/assert@0.215";
 import {
   checkCopyrightHeaders,
   Options,
-} from "https://deno.land/x/copyright_license_checker@1.1.0/mod.ts";
+} from "jsr:@cknight/copyright_license_checker@1";
 
 // Run with allow write and allow read permissions on the relevant directories
 // e.g. deno test --allow-read=.
