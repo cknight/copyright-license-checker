@@ -92,7 +92,7 @@ import { assert } from "jsr:@std/assert@0.215";
 import {
   checkCopyrightHeaders,
   Options,
-} from "jsr:@cknight/copyright_license_checker@1";
+} from "jsr:@cknight/copyright_checker@1";
 
 // Run with allow write and allow read permissions on the relevant directories
 // e.g. deno test --allow-read=.

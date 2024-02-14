@@ -1,5 +1,5 @@
 {
-  "name": "@cknight/copyright-license-checker",
+  "name": "@cknight/copyright-checker",
   "version": "1.2.0",
   "exports": "./mod.ts",
   "imports": {
